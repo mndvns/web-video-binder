@@ -1,0 +1,17 @@
+npx -y webpack || exit $?
+
+mv dist/index.js dist/index.js.tmp
+
+echo "// ==UserScript==
+// @name         Video
+// @namespace    http://tampermonkey.net/
+// @version      0.1
+// @description  try to take over the world!
+// @author       You
+// @match        *://*/*
+// @grant        none
+// ==/UserScript==" > dist/index.js
+
+cat dist/index.js.tmp >> dist/index.js
+
+rm dist/index.js.tmp

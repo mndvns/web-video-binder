@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "lib": ["esnext", "dom"],
+    "baseUrl": ".",
+    "types": [],
+    "target": "es2021",
+    "outDir": "dist",
+    "pretty": true,
+    "module": "commonjs",
+    "removeComments": false,
+    "strict": false
+  },
+  "files": ["src/index.ts"]
+}
