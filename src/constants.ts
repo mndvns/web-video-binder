@@ -1,18 +1,23 @@
 import { setRate } from "./rate";
 import { select } from "./utils";
 
-// Get start time. It"s used to measure timeouts.
-export const first = Date.now();
+// Get start time. Useful for timeouts.
+export const START_TIME = Date.now();
 
-// `keyRepeatSpeed` is the number of ms between keydown events.
+// The number of ms between keydown events.
 // When this value is lower, keydown events fire quicker.
 export const KEY_REPEAT_SPEED = 50;
 
-// `mediumSpeedChangePerc` is the percentage to change speeds.
-export const mediumSpeedChangePerc = 10;
-// `fineSpeedChangePerc` is the percentage to change fine speeds.
-export const fineSpeedChangePerc = 0.025;
+export const SPEED_CHANGE = 1/3; // .67 sec
+export const SPEED_CHANGE_FINE = 1/10; // .1 sec
+export const SPEED_CHANGE_TINY = 1/40; // .025 sec
 
+export const VERY_SHORT_JUMP = 3000; // 3 sec
+export const SHORT_JUMP = 10000; // 10 sec
+export const MEDIUM_JUMP = 60000; // 1 min
+export const LONG_JUMP = 300000; // 5 mins
+
+// TODO This feels like a kinda dumb way of doing things
 // prettier-ignore
 export const CHARS = {
   KeyA: "A", KeyB: "B", KeyC: "C", KeyD: "D", KeyE: "E", KeyF: "F", KeyG: "G",
@@ -25,10 +30,22 @@ export const CHARS = {
 };
 
 export const KEYID_BOUND_FNS: Record<string, () => void> = {
-  "⌥⇧↑": () => setRate(select<HTMLVideoElement>("video"), mediumSpeedChangePerc),
-  "⌥⇧↓": () => setRate(select<HTMLVideoElement>("video"), mediumSpeedChangePerc * -1),
-  "⌥↑": () => setRate(select<HTMLVideoElement>("video"), fineSpeedChangePerc),
-  "⌥↓": () => setRate(select<HTMLVideoElement>("video"), fineSpeedChangePerc * -1)
-  // ^ ⌥ ⇧
+  "⌥↑": () => setRate(select<HTMLVideoElement>("video"), SPEED_CHANGE_TINY),
+  "⌥↓": () => setRate(select<HTMLVideoElement>("video"), SPEED_CHANGE_TINY * -1),
+  "⌥⇧↑": () => setRate(select<HTMLVideoElement>("video"), SPEED_CHANGE_FINE),
+  "⌥⇧↓": () => setRate(select<HTMLVideoElement>("video"), SPEED_CHANGE_FINE * -1),
+  "⌘⌥⇧↑": () => setRate(select<HTMLVideoElement>("video"), SPEED_CHANGE),
+  "⌘⌥⇧↓": () => setRate(select<HTMLVideoElement>("video"), SPEED_CHANGE * -1),
+
+  // "→": () => setTime(select<HTMLVideoElement>("video"), veryShortJump),
+  // "←": () => setTime(select<HTMLVideoElement>("video"), veryShortJump * -1),
+  // "⌥→": () => setTime(select<HTMLVideoElement>("video"), shortJump),
+  // "⌥←": () => setTime(select<HTMLVideoElement>("video"), shortJump * -1),
+  // "⌘⌥→": () => setTime(select<HTMLVideoElement>("video"), mediumJump),
+  // "⌘⌥←": () => setTime(select<HTMLVideoElement>("video"), mediumJump * -1),
+  // "⌘⇧⌥→": () => setTime(select<HTMLVideoElement>("video"), longJump),
+  // "⌘⇧⌥←": () => setTime(select<HTMLVideoElement>("video"), longJump * -1),
+
+  // ⌘ ⇧ ⌥ ^
   // ← ↑ → ↓
 };

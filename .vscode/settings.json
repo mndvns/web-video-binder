@@ -1,8 +1,0 @@
-{
-  "files.associations": {
-    "**/scripts/build": "shellscript"
-  },
-  "files.exclude": {
-    ".vscode": true
-  }
-}
