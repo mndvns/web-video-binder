@@ -3,8 +3,8 @@ module.exports = {
   target: "web",
   entry: `${__dirname}/src/index.ts`,
   output: {
-    path: `${__dirname}/dist`,
-    filename: "index.js"
+    path: `${__dirname}/public`,
+    filename: "content-script.js"
   },
   module: {
     rules: [
