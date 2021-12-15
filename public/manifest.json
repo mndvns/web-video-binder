@@ -1,28 +1,13 @@
 {
-  "name": "Minuz Ext Svelte",
+  "name": "Web Video Binder",
   "version": "1.0",
   "description": "",
-  "permissions": [
-    "activeTab",
-    "alarms",
-    "browsingData",
-    "contextMenus",
-    "declarativeContent",
-    "history",
-    "idle",
-    "nativeMessaging",
-    "sessions",
-    "storage",
-    "tabs",
-    "webNavigation",
-    "webRequest"
-  ],
+  "permissions": ["contextMenus"],
   "manifest_version": 3,
   "content_scripts": [
     {
       "matches": ["*://*/*"],
-      "js": ["content-script.js"],
-      "all_frames": true
+      "js": ["content-script.js"]
     }
   ]
 }

@@ -1,4 +1,4 @@
-import { first } from "./constants";
+import { START_TIME } from "./constants";
 import debug from "./debug";
 import { rate } from "./rate";
 import { select } from "./utils";
@@ -15,7 +15,7 @@ export function videoRatesInitialUpdate() {
   const videos = select<HTMLVideoElement>("video");
   if (videos.length) return updateVideosRates(videos, rate);
   if (timeout === 0) return setTimeout(videoRatesInitialUpdate, freq);
-  if (timeout < Date.now() - first) setTimeout(videoRatesInitialUpdate, freq);
+  if (timeout < Date.now() - START_TIME) setTimeout(videoRatesInitialUpdate, freq);
 }
 
 /**

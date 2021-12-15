@@ -1,7 +1,7 @@
 {
-  "name": "minuz-video",
+  "name": "web-video-binder",
   "version": "1.0.0",
-  "main": "dist/index.js",
+  "private": true,
   "scripts": {
     "dev": "webpack -w",
     "build": "webpack"

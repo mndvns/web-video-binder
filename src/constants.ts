@@ -8,7 +8,7 @@ export const START_TIME = Date.now();
 // When this value is lower, keydown events fire quicker.
 export const KEY_REPEAT_SPEED = 50;
 
-export const SPEED_CHANGE = 1/3; // .67 sec
+export const SPEED_CHANGE = 1/3; // .33 sec
 export const SPEED_CHANGE_FINE = 1/10; // .1 sec
 export const SPEED_CHANGE_TINY = 1/40; // .025 sec
 
